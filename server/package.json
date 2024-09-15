@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "src",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,14 +13,14 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/your-repo-url"
   },
   "bugs": "",
   "keywords": [],
   "author": {
     "name": "",
-    "email": "",
-    "url": ""
+    "email": "example@example.com",
+    "url": "https://github.com/your-repo-url"
   },
   "contributors": [
 
