@@ -5,21 +5,21 @@ import './index.css'
 
 import Navbar from './components/Navbar';
 import ActionPanel from './components/ActionPanel';
-import GameMap from './components/GameMap';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
   </StrictMode>,
 )
-function App() {
+function main() {
   return (
     <div className="App">
       <Navbar />
       <div className="game-container">
-        <GameMap />
         <ActionPanel />
       </div>
     </div>
   );
 }
+
+export default main;

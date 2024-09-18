@@ -1,6 +1,11 @@
-import { DataTypes, Sequelize, Model, Optional } from "sequelize";
+import { DataTypes, Sequelize, Model } from "sequelize";
+import bcrypt from 'bcrypt';
 
-class Character extends Model {}
+class Character extends Model {
+    static async hashPassword(character) {
+        character.name = await bcrypt.hash(character.name, 10);
+    }
+}
 
 function initializeCharacter(sequelize) {
   Character.init(
@@ -54,6 +59,14 @@ function initializeCharacter(sequelize) {
     {
         sequelize,
         modelName: 'Character',
+        hooks: {
+            beforeCreate: async (newCharacter) => {
+                await user.hashPassword(newCharacter);
+            },
+            beforeUpdate: async (updatedCharacter) => {
+                updatedCharacter.name = await bcrypt.hash(updatedCharacter.name, 10);
+            },
+        },
     }
     );
     return Character;

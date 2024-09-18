@@ -46,6 +46,7 @@
     "jsonwebtoken": "^9.0.2",
     "openai": "^4.61.1",
     "pg": "^8.11.5",
+    "react-router-dom": "^6.26.2",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {

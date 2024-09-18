@@ -13,3 +13,6 @@ if (apiKey) {
 } else {
     console.error('No OpenAI API key found. Please set one in your .env file.');
 }
+
+
+

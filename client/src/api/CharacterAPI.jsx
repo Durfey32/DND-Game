@@ -104,6 +104,7 @@ const deleteCharacter = async (characterId) => {
 };
 
 export {
+    retrieveCharacters,
     retrieveCharacter,
     createCharacter,
     updateCharacter,
