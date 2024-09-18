@@ -11,6 +11,7 @@ function MainPage() {
                 <Switch>
                     <Route path="/action" component={ActionPanel} />
                 </Switch>
+                <Footer></Footer>
             </div>
         </Router>
     );
