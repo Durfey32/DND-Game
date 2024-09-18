@@ -6,6 +6,7 @@ import './index.css'
 import Navbar from './components/Navbar';
 import ActionPanel from './components/ActionPanel';
 import GameMap from './components/GameMap';
+import MainPage from './pages/MainPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,3 +24,21 @@ function App() {
     </div>
   );
 }
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+    ],
+  },
+]);
