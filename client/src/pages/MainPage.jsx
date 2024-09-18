@@ -10,6 +10,7 @@ function MainPage() {
                 <Header>DND Style Game</Header>
                 <Switch>
                     <Route path="/action" component={ActionPanel} />
+                    <Route path="/nav" component={Navbar} />
                 </Switch>
                 <Footer></Footer>
             </div>
