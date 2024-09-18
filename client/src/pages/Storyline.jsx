@@ -53,3 +53,4 @@ export const Storyline = () => {
     );
 };
 }
+export default Storyline;

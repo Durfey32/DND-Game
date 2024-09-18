@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 import ActionPanel from './components/ActionPanel';
 import GameMap from './components/GameMap';
 import MainPage from './pages/MainPage.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import CreateCharacter from './pages/CreateCharacter.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -36,8 +38,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/login',
-        element: <Login />,
+        path: '/characters',
+        element: <CreateCharacter />,
       },
     ],
   },
