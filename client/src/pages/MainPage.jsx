@@ -7,6 +7,10 @@ function MainPage() {
     return (
         <Router>
             <div className="main-page">
+                <Header>DND Style Game</Header>
+                <Switch>
+                    <Route path="/action" component={ActionPanel} />
+                </Switch>
             </div>
         </Router>
     );
