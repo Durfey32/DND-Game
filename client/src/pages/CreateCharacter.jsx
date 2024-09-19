@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import e from 'express';
 
+
 export const CreateCharacter = () => {
     const [name, setName] = useState('');
 
@@ -55,3 +56,4 @@ export const CreateCharacter = () => {
     );  
 }
 export default CreateCharacter;
+
