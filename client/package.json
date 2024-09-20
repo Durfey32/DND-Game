@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "seed": "cd server && npm run seed",
-    "start": "npm run client:build && npm run server"
+    "seed": "npm run seed",
+    "start": "npm run dev"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
