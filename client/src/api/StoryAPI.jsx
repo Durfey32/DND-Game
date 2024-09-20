@@ -1,16 +1,16 @@
 const retrieveGames = async (gameId) => {
     try {
-        const response = await fetch(`/api/games/${gameId}`, {
+        const response = await fetch(`/api/games/`, {
             headers: {
                 'Content-Type': 'application/json'
             }
             });
-        const data = await response.json();
     
         if (!response.ok) {
             throw new Error('invalid game API response, check the server logs');
         }
-    
+
+        const data = await response.json();
         return data;
     } catch (error) {
         console.error('error retrieving game data:', error);
@@ -25,12 +25,12 @@ const retrieveGame = async (gameId) => {
                 'Content-Type': 'application/json'
             }
             });
-        const data = await response.json();
     
         if (!response.ok) {
             throw new Error('invalid game API response, check the server logs');
         }
-    
+
+        const data = await response.json();
         return data;
     } catch (error) {
         console.error('error retrieving game data:', error);
@@ -47,12 +47,12 @@ const createGame = async (gameData) => {
             },
             body: JSON.stringify(gameData)
         });
-        const data = await response.json();
     
         if (!response.ok) {
             throw new Error('invalid game API response, check the server logs');
         }
     
+        const data = await response.json();
         return data;
     } catch (error) {
         console.error('error creating game:', error);
@@ -69,12 +69,12 @@ const updateGame = async (gameId, gameData) => {
             },
             body: JSON.stringify(gameData)
         });
-        const data = await response.json();
     
         if (!response.ok) {
             throw new Error('invalid game API response, check the server logs');
         }
     
+        const data = await response.json();
         return data;
     } catch (error) {
         console.error('error updating game:', error);
@@ -90,12 +90,12 @@ const deleteGame = async (gameId) => {
                 'Content-Type': 'application/json'
             }
         });
-        const data = await response.json();
     
         if (!response.ok) {
             throw new Error('invalid game API response, check the server logs');
         }
     
+        const data = await response.json();
         return data;
     } catch (error) {
         console.error('error deleting game:', error);
