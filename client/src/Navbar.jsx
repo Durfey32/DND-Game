@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <ul>
-        <li>Character</li>
+        <nav>Character</nav>
         <li>Inventory</li>
         <li>Quests</li>
         <li>Map</li>
