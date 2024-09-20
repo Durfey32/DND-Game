@@ -39,11 +39,13 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "convai-web-sdk": "^0.1.2",
     "dnd-game": "file:",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "openai": "^4.61.1",
+    "openai": "^4.62.1",
     "pg": "^8.11.5",
     "sequelize": "^6.37.3"
   },
