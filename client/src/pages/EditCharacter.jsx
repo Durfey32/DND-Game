@@ -65,3 +65,5 @@ useEffect(() => {
         </div>
     );
 }
+export default EditCharacter;
+
