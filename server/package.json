@@ -26,7 +26,8 @@
   "scripts": {
     "dev": "",
     "test": "",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "start": "npm run client:build && npm run server"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
