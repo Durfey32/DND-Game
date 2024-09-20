@@ -1,4 +1,5 @@
-import { DataTypes, Sequelize, Model, Optional } from "sequelize";
+import { DataTypes, Model } from "sequelize";
+import { Game } from "./game";
 
 class Character extends Model {}
 
@@ -50,10 +51,20 @@ function initializeCharacter(sequelize) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        gameId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Game,
+                key: 'id',
+            },
+            onDelete: 'CASCADE',
+        },
     },      
     {
         sequelize,
         modelName: 'Character',
+        tableName: 'characters',
     }
     );
     return Character;
