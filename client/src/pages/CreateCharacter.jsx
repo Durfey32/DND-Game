@@ -1,10 +1,12 @@
 import { useState } from 'react';
-// import { createCharacter } from '../api/CharacterAPI';
+import { createCharacter } from '../api/CharacterAPI';
 import { useNavigate } from 'react-router-dom';
-// import e from 'express';
+import React from 'react';
 
 
-export const CreateCharacter = () => {
+
+
+const CreateCharacter = () => {
     const [name, setName] = useState('');
 
     const [description, setDescription] = useState('');
@@ -54,6 +56,6 @@ export const CreateCharacter = () => {
             </form>
         </div>
     );  
-}
+};
 export default CreateCharacter;
 

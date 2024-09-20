@@ -1,6 +1,30 @@
-
+import React, { useState } from 'react';
+import Auth from '../utils/auth';
 
 function Login() {
+    const [loginData, setLoginData] = useState({
+        username: '',
+        password: '',
+      });
+    
+      const handleChange = () => {
+        const { name, value } = e.target;
+        setLoginData({
+          ...loginData,
+          [name]: value,
+        });
+      };
+    
+      const handleSubmit = async () => {
+        e.preventDefault();
+        try {
+          const data = await login(loginData);
+          Auth.login(data.token);
+        } catch (err) {
+          console.error('Failed to login', err);
+        }
+      };
+
   return (
     <div className='form-container'>
     <form className='form login-form' onSubmit={handleSubmit}>
