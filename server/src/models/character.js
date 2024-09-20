@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import { Game } from "./game";
+import { Game } from "./game.js";
 
 class Character extends Model {}
 

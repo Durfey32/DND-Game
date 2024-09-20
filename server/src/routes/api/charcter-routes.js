@@ -1,8 +1,7 @@
 import express from 'express';
-import { generateCharacter } from '../../controllers/characterController';
+import { generateCharacter } from '../../controllers/characterController.js';
 
-const charcterRoutes = express.Router();
+const characterRoutes = express.Router();
+characterRoutes.post('/generate-character', generateCharacter);
 
-charcterRoutes.post('/generate-character', generateCharacter);
-
-export default charcterRoutes;
+export {characterRoutes as characterRoutes};

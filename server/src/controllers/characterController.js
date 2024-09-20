@@ -1,21 +1,25 @@
-import { ConvaiClient } from "convai-web-sdk"
+import pkg from "convai-web-sdk"
+// import ChatBubble,{ useConvaiClient } from "convai-chatui-sdk";
 import dotenv from 'dotenv';
-import { Configuration, OpenAIApi } from 'openai';
+import { OpenAI } from 'openai';
+
 
 dotenv.config();
+const client = new OpenAI(process.env.OPENAI_API_KEY);
 
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-    });
-const openai = new OpenAIApi(configuration);
+// const configuration = new Configuration({
+//     apiKey: process.env.OPENAI_API_KEY,
+//     });
+// const openai = new OpenAIApi(configuration);
+const covnaiClient = pkg
 
-const convaiClient = new ConvaiClient({
-    apiKey: process.env.CONVAI_API_KEY,
-    characterId: "your-character-id",
-    enableAudio: false,
-    sessionId: "your-session-id",
-    disableAudioGeneration: true,
-    });
+// const covnaiClient = new pkg({
+//     apiKey: process.env.CONVAI_API_KEY,
+//     characterId: "your-character-id",
+//     enableAudio: false,
+//     sessionId: "your-session-id",
+//     disableAudioGeneration: true,
+//     });
 
 export const generateCharacter = async (req, res) => {
     try {
