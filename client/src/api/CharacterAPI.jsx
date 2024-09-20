@@ -1,4 +1,4 @@
-const retrieveCharacters = async (characterId) => {
+const retrieveCharacters = async () => {
     try {
         const response = await fetch(`/api/characters`, {
             headers: {
@@ -104,6 +104,7 @@ const deleteCharacter = async (characterId) => {
 };
 
 export {
+    retrieveCharacters,
     retrieveCharacter,
     createCharacter,
     updateCharacter,

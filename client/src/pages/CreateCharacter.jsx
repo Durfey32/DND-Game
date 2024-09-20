@@ -8,12 +8,10 @@ import React from 'react';
 
 const CreateCharacter = () => {
     const [name, setName] = useState('');
-
     const [description, setDescription] = useState('');
-
     const navigate = useNavigate();
 
-    const createNewCharacter = async (createCharacter) => {
+    const createNewCharacter = async (character) => {
         try {
             const data = await createCharacter(character);
             console.log('created character:', data);
@@ -46,11 +44,21 @@ const CreateCharacter = () => {
             <form onSubmit={handleSubmit}>
                 <label>
                     Name
-                    <input type="text" value={name} onChange={handleNameChange} />
+                    <input type="text" 
+                    value={name} 
+                    onChange={handleNameChange}
+                    placeholder='Enter Character Name'
+                    required
+                     />
                 </label>
                 <label>
                     Description
-                    <textarea value={description} onChange={handleDescriptionChange} />
+                    <textarea 
+                    value={description} 
+                    onChange={handleDescriptionChange}
+                    placeholder='Enter Character Description'
+                    required 
+                    />
                 </label>
                 <button type="submit">Create Character</button>
             </form>
