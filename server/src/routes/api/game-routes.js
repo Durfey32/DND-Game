@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllGames, createGame, updateGame, deleteGame, askQuestion } from '../../controllers/gameController';
+import { getAllGames, createGame, updateGame, deleteGame, askQuestion } from '../../controllers/gameController.js';
 
 const gameRoutes = express.Router();
 
@@ -13,4 +13,4 @@ gameRoutes.delete('/:id', deleteGame);
 
 gameRoutes.post('/ask', askQuestion);
 
-export default gameRoutes;
+export { gameRoutes as gameRoutes};
