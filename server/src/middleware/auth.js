@@ -4,12 +4,12 @@ import jwt from 'jsonwebtoken';
 
 
 // Middleware function to authenticate JWT token
-export const authenticateToken = (req, res,) => {
+export const authenticateToken = (req, res, next) => {
   // Get the authorization header from the request
   const authHeader = req.headers.authorization;
 
   // Check if the authorization header is present
-  if (authHeader) {
+  if (authHeader && authHeader.startsWith('Bearer ')) {
     // Extract the token from the authorization header
     const token = authHeader.split(' ')[1];
 
@@ -27,6 +27,6 @@ export const authenticateToken = (req, res,) => {
       return next(); // Call the next middleware function
     });
   } else {
-    res.sendStatus(401); // Send unauthorized status if no authorization header is present
+    res.sendStatus(401).json({ message: 'Authorization header missing or malformed'}); // Send unauthorized status if no authorization header is present
   }
 };
