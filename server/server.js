@@ -1,11 +1,11 @@
-const forceDatabaseSync = false;
-
 import express from 'express';
-import sequelize from './config/connection.js';
-import routes from './routes/index.js';
+import sequelize from './src/config/connection.js';
+import routes from './src/routes/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const forceDatabaseSync = false;
 
 app.use(express.static('../client/dist'));
 
