@@ -1,4 +1,4 @@
-const retrieveGames = async (gameId) => {
+const retrieveGames = async () => {
     try {
         const response = await fetch(`/api/games/`, {
             headers: {

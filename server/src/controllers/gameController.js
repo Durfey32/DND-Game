@@ -128,11 +128,11 @@ export const askQuestion = async (req, res) => {
 
         const formattedPrompt = await formatPrompt(userScenario);
         const response = await promptFunc(formattedPrompt);
-        const result = await parseResponse(rawResponse);
+        const result = await parseResponse(response);
         res.json({
             scenario: userScenario,
             quest: result.quest, 
-            question: response.questions, 
+            question: result.questions, 
             options: result.options 
         });
     } catch (err) {
