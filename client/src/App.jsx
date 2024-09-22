@@ -1,34 +1,37 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import React from 'react';
+// import Leaderboard from './components/Leaderboard';
 
 function App() {
   return (
-    <div className="d-flex justify-content-center">
+    <div >
       <Navbar />
-      <main className="container">
+      <main className="d-flex justify-content-center container">
         <Outlet />
+        {/* <h1>DND Game Leaderboard</h1>
+        <Leaderboard /> */}
       </main>
     </div>
   );
 }
 
-src/App.js
+// src/App.js
 
-import React from 'react';
-import Leaderboard from './components/Leaderboard';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>DND Game Leaderboard</h1>
-      </header>
-      <Leaderboard />
-    </div>
-  );
-}
+
+// import './App.css';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+        
+//       </header>
+      
+//     </div>
+//   );
+// }
 
 
 export default App;

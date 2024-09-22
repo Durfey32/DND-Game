@@ -1,4 +1,5 @@
 import React from 'react';
+import auth from '../utils/auth';
 
 const Navbar = () => {
   return (
@@ -17,7 +18,7 @@ const Navbar = () => {
               <a className="nav-link" href="/characters">characters</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/login">logout</a>
+              <a className="nav-link" href="/login" onClick={() => { auth.logout(); }}>logout</a>
             </li>
            
           </ul>
