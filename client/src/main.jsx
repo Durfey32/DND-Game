@@ -8,6 +8,8 @@ import React from 'react'
 import MainPage from './pages/MainPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import CreateCharacter from './pages/CreateCharacter.jsx';
+import Storyline from './pages/Storyline.jsx'
+import EditCharacter from './pages/EditCharacter.jsx'
 
 
 
@@ -29,6 +31,15 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
+      {
+        path: '/Storyline',
+        element: <Storyline />,
+      },
+      {
+        path: '/edit-character',
+        element: <EditCharacter />,
+      },
+
     ],
   },
 ])
