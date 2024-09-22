@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createGame } from  '../api/StoryAPI';
 import { useNavigate } from 'react-router-dom';
 
-export const Storyline = () => {
+const Storyline = () => {
     const [name, setName] = useState('');
 
     const [description, setDescription] = useState('');
@@ -29,7 +29,7 @@ export const Storyline = () => {
         e.preventDefault();
         try {
         await createNewGame({ name, description });
-        navigate('/games');
+        navigate('/storyline');
         } catch (err) {
         console.error(err);
         }

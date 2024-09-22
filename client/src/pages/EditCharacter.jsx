@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { retrieveCharacters, retrieveCharacter, updateCharacter, deleteCharacter } from '../api/CharacterAPI';
+import { useNavigate, useParams } from 'react-router-dom';
+import { retrieveCharacter, updateCharacter, deleteCharacter } from '../api/CharacterAPI';
 
 export const EditCharacter = () => {
     const { id } = useParams();
@@ -35,7 +35,7 @@ useEffect(() => {
         if (character.name && character.description) {
             try {
                 await updateCharacter(id, character);
-                navigate('/characters');
+                navigate('/edit-character');
             } catch (err) {
                 console.error('error updating character:', err);
                 setError('error updating character');
@@ -48,7 +48,7 @@ useEffect(() => {
     const handleDelete = async () => {
         try {
             await deleteCharacter(id);
-            navigate('/characters');
+            navigate('/edit-character');
         } catch (err) {
             console.error('error deleting character:', err);
             setError('error deleting character');
@@ -58,7 +58,6 @@ useEffect(() => {
     return (
         <div>
             <h1>Edit Character</h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <label>
                     Name
