@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/Storyline',
+        path: '/storyline',
         element: <Storyline />,
       },
       {
