@@ -1,15 +1,19 @@
-import { Game } from '../models/gameModel';
-import { Character } from '../models/characterModel';
-import { PromptTemplate, StructuredOutputParser } from '../models/promptTemplateModel';
+import { Game } from '../models/game.js';
+import { Character } from '../models/character.js';
+// import { PromptTemplate, StructuredOutputParser } from '../models/promptTemplateModel';
+import { PromptTemplate } from '@langchain/core/prompts';
+import { StructuredOutputParser } from 'langchain/output_parsers';
 import dotenv from 'dotenv';
+import { OpenAI } from 'openai';
+
 
 dotenv.config();
 
 const openaiApiKey = process.env.OPENAI_API_KEY;
-let model;
+
 
 if (openaiApiKey) {
-    model = new OpenAI({ apiKey: openaiApiKey });
+   const model = new OpenAI({ apiKey: openaiApiKey });
 } else {
     console.error('No OpenAI API key found. Please set one in your .env file.');
 }
@@ -124,11 +128,11 @@ export const askQuestion = async (req, res) => {
 
         const formattedPrompt = await formatPrompt(userScenario);
         const response = await promptFunc(formattedPrompt);
-        const result = await parseResponse(rawResponse);
+        const result = await parseResponse(response);
         res.json({
             scenario: userScenario,
             quest: result.quest, 
-            question: response.questions, 
+            question: result.questions, 
             options: result.options 
         });
     } catch (err) {

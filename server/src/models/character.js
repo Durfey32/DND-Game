@@ -1,9 +1,8 @@
 import { DataTypes, Model } from "sequelize";
-import { Game } from "./game";
 
-class Character extends Model {}
+export class Character extends Model {}
 
-function initializeCharacter(sequelize) {
+export function initializeCharacter(sequelize) {
   Character.init(
     {
       id: {
@@ -53,22 +52,19 @@ function initializeCharacter(sequelize) {
         },
         gameId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             references: {
-                model: Game,
+                model: 'Game',
                 key: 'id',
             },
             onDelete: 'CASCADE',
         },
     },      
     {
-        sequelize,
-        modelName: 'Character',
         tableName: 'characters',
+        sequelize,
     }
     );
     return Character;
 }
-
-export { initializeCharacter, Character };
 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
+import { login } from '../api/authAPI';
 
-function Login() {
+const Login = () => {
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',
       });
     
-      const handleChange = () => {
+      const handleChange = (e) => {
         const { name, value } = e.target;
         setLoginData({
           ...loginData,
@@ -15,11 +16,12 @@ function Login() {
         });
       };
     
-      const handleSubmit = async () => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
         try {
           const data = await login(loginData);
-          Auth.login(data.token);
+          Auth.login(data.token)
+          console.log('Logged in');
         } catch (err) {
           console.error('Failed to login', err);
         }

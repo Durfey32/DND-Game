@@ -1,20 +1,22 @@
-import { Game } from "../models/game";
+import { Game } from "../models/index.js";
 
 export const seedGame = async () => {
-    await Game.sync({ force: true });
-  const games = [
+    await Game.bulkCreate([
     {
       title: "Dungeons & Dragons",
-      game_master: "Dungeon Master",
+      game_master: "Dungeon Master"
+      
+    
     },
     {
       title: "Pathfinder",
-      game_master: "Pathfinder Master",
+      game_master: "Pathfinder Master"
+     
     },
     {
       title: "Starfinder",
-      game_master: "Starfinder Master",
+      game_master: "Starfinder Master"
+    
     }, 
-    ]; 
-    await Game.bulkCreate(games);   
+    ], { individualHooks: true });
 }
