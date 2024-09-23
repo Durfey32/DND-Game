@@ -1,7 +1,7 @@
 import { Character } from '../models/character.js';
 
 export const seedCharacter = async () => {
-await Character.bulkCreate{ [
+    await Character.bulkCreate([
         {
             name: 'Frodo Baggins', 
             class: 'Rogue',
@@ -38,18 +38,5 @@ await Character.bulkCreate{ [
             wisdom: 10,
             charisma: 10,
         },
-    ], {individualHooks: true}); 
-};
-
-    
-export const seedCharacter = async () => {
-    try {
-    await Character.bulkCreate(characters, {
-        individualHooks: true,
-        returning: true,
-    });
-    console.log('Characters seeded');
-    } catch (err) {
-        console.error('Error seeding characters', err);
-    } ,
+    ], { individualHooks: true });
 }

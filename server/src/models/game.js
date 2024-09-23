@@ -1,9 +1,8 @@
 import { DataTypes, Model } from "sequelize";
-import { Character } from "./character.js";
 
 export class Game extends Model {}
 
-function initializeGame(sequelize) {
+export function initializeGame(sequelize) {
   Game.init(
     {
       id: {
@@ -21,14 +20,9 @@ function initializeGame(sequelize) {
       },
     },
     {
-        sequelize,
-        modelName: 'Game',
         tableName: 'games',
+        sequelize
     });
-
-
 
   return Game;
 }
-
-export { initializeGame };

@@ -1,6 +1,12 @@
 import { DataTypes, Model } from "sequelize";
+import bcrypt from 'bcrypt';
 
-export class Player extends Model {}
+export class Player extends Model {
+  async setPassword(password) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(password, saltRounds);
+  }
+}
 
 export function initializePlayer(sequelize) {
   Player.init(
@@ -30,20 +36,21 @@ export function initializePlayer(sequelize) {
     },
     {
       sequelize,
-      modelName: 'Player',
       tableName: 'players',
       timestamps: true,
       hooks: {
         beforeCreate: async (player) => {
-          player.password = await bcrypt.hash(player.password, 10);
+          await player.setPassword(player.password);
         },
         beforeUpdate: async (player) => {
-          player.password = await bcrypt.hash(player.password, 10);
+          await player.setPassword(player.password);
       },
     },
-    }
-  );
+  }, {
+    tableName: 'players',
+    sequelize
+  });
 
   return Player;
-}
 
+}
