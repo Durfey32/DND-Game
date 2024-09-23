@@ -1,6 +1,7 @@
 import sequelize from "../config/connection.js";
 import { seedGame } from "./game-seeds.js";
 import { seedCharacter } from "./character-seeds.js";
+import { seedPlayer } from "./player-seeds.js";
 
 const seedAll = async () => {
     try {
@@ -12,6 +13,9 @@ const seedAll = async () => {
         
         await seedCharacter();
         console.log('\n----- CHARACTERS SEEDED -----\n');
+
+        await seedPlayer();
+        console.log('\n----- PLAYERS SEEDED -----\n');
 
         process.exit(0);
     } catch (err) {

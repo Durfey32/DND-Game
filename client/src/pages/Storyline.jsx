@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createGame } from  '../api/StoryAPI';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import '../index.css';
 
 const Storyline = () => {
     const [name, setName] = useState('');
@@ -38,14 +39,14 @@ const Storyline = () => {
     };
     
     return (
-        <div>
+        <div className='storyline'>
         <h1>Create a Game</h1>
         <form onSubmit={handleSubmit}>
-            <label>
+            <label className='form'>
             Name
             <input type="text" value={name} onChange={handleNameChange} />
             </label>
-            <label>
+            <label className='form'>
             Description
             <textarea value={description} onChange={handleDescriptionChange} />
             </label>

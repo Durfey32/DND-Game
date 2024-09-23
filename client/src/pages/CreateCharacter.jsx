@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createCharacter } from '../api/CharacterAPI';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import '../index.css';
 
 const CreateCharacter = () => {
     const [name, setName] = useState('');
@@ -36,10 +37,10 @@ const CreateCharacter = () => {
     };
 
     return (
-        <div>
+        <div className='CreateCharacter'>
             <h1>Create a Character</h1>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className='form'>
                     Name
                     <input type="text" 
                     value={name} 
@@ -48,7 +49,7 @@ const CreateCharacter = () => {
                     required
                      />
                 </label>
-                <label>
+                <label className='form'>
                     Description
                     <textarea 
                     value={description} 

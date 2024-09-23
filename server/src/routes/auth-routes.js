@@ -6,7 +6,8 @@ import { Player } from '../models/players.js';
 
 export const login = async (req, res) => {
   try {
-  const { username, password } = req.body;  
+  const { username, password } = req.body;
+  console.log('received login request:', username);  
  
   const user = await Player.findOne({
     where: { username },
