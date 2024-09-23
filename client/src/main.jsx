@@ -39,6 +39,10 @@ const router = createBrowserRouter([
         path: '/edit-character',
         element: <EditCharacter />,
       },
+      // {
+      //   path: '/leaderboard',
+      //   element: <Leaderboard />,
+      // }
 
     ],
   },

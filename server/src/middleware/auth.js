@@ -1,7 +1,4 @@
-// import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-
-
 
 // Middleware function to authenticate JWT token
 export const authenticateToken = (req, res, next) => {
