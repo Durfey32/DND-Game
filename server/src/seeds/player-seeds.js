@@ -1,4 +1,4 @@
-import { Player } from '../models/players.js';
+import { Player } from '../models/index.js';
 
 export const seedPlayer = async () => {
     await Player.bulkCreate([

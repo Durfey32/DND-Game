@@ -52,9 +52,9 @@ export function initializeCharacter(sequelize) {
         },
         gameId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             references: {
-                model: Game,
+                model: 'Game',
                 key: 'id',
             },
             onDelete: 'CASCADE',

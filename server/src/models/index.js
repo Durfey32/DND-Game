@@ -10,7 +10,7 @@ const Character = initializeCharacter(sequelize);
 Player.hasMany(Game, {foreignKey: 'player_id'});
 Game.belongsTo(Player, {foreignKey: 'player_id', as: 'player'});
 
-Game.hasMany(Character, {foreignKey: 'game_id'});
-Character.belongsTo(Game, {foreignKey: 'game_id', as: 'game'});
+Game.hasMany(Character, {foreignKey: 'gameid'});
+Character.belongsTo(Game, {foreignKey: 'gameid', as: 'game'});
 
 export { Game, Character, Player };

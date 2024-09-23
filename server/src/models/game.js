@@ -20,7 +20,7 @@ export function initializeGame(sequelize) {
       },
     },
     {
-        tableName: 'games',
+        tableName: 'Game',
         sequelize
     });
 
