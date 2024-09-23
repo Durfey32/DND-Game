@@ -103,4 +103,26 @@ const deleteGame = async (gameId) => {
     }
 };  
 
-export { retrieveGames, retrieveGame, createGame, updateGame, deleteGame };
+const createScore = async (scoreData) => {
+    try {
+        const response = await fetch(`/api/scores`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(scoreData)
+        });
+
+        if (!response.ok) {
+            throw new Error('invalid score API response, check the server logs');
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('error creating score:', error);
+        return Promise.reject('error creating score');
+    }
+};
+
+export { retrieveGames, retrieveGame, createGame, updateGame, deleteGame, createScore };

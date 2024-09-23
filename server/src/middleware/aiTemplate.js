@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { OpenAI } from '@langchain/openai';
 import { PromptTemplate } from '@langchain/core/prompts';
 import { StructuredOutputParser } from 'langchain/output_parsers';
