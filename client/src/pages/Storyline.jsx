@@ -1,17 +1,42 @@
 import { useState } from 'react';
 import { createGame } from  '../api/StoryAPI';
 import { useNavigate } from 'react-router-dom';
+import auth from '../utils/auth.js'
 import React from 'react';
 import '../index.css';
 
 const Storyline = () => {
     const [name, setName] = useState('');
-
     const [description, setDescription] = useState('');
-
     const navigate = useNavigate();
 
-    const createNewGame = async (creatGame) => {
+    const createGame = async (game) => {
+        try {
+            const token =auth.getToken();
+
+            const response = await fetch('/api/games', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(game),
+            });
+
+            console.log('Response status:', response.status);
+        if (!response.ok) {
+            throw new Error('Failed to create game due to invalid API response');
+        }
+
+        const data = await response.json();
+        return data;
+        } catch (err) {
+        console.error('error creating game:', err);
+        return Promise.reject('error creating game');
+        }
+    }
+
+    const createNewGame = async (game) => {
         try {
         const data = await createGame(game);
         console.log('created game:', data);
