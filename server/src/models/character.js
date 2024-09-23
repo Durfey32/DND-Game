@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import { Game } from "./game.js";
 
-class Character extends Model {}
+export class Character extends Model {}
 
 function initializeCharacter(sequelize) {
   Character.init(
@@ -70,5 +70,5 @@ function initializeCharacter(sequelize) {
     return Character;
 }
 
-export { initializeCharacter, Character };
+export { initializeCharacter};
 

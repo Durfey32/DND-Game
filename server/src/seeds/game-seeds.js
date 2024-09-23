@@ -1,4 +1,4 @@
-import { Game } from "../models/game";
+import { Game } from "../models/game.js";
 
 export const seedGame = async () => {
     await Game.sync({ force: true });

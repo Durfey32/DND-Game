@@ -1,8 +1,8 @@
 import { DataTypes, Model } from "sequelize";
 
-class Player extends Model {}
+export class Player extends Model {}
 
-function initializePlayer(sequelize) {
+export function initializePlayer(sequelize) {
   Player.init(
     {
       id: {
@@ -47,10 +47,3 @@ function initializePlayer(sequelize) {
   return Player;
 }
 
-async function hashPassword(password) {
-  const bcrypt = require('bcrypt');
-  const saltRounds = 10;
-  return await bcrypt.hash(password, saltRounds);
-}
-
-export { Player, initializePlayer, hashPassword };

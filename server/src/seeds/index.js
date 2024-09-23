@@ -1,6 +1,6 @@
-import sequelize from "../config/connection";
-import { seedGame } from "./game-seeds";
-import { seedCharacter } from "./character-seeds";
+import sequelize from "../config/connection.js";
+import { seedGame } from "./game-seeds.js";
+import { seedCharacter } from "./character-seeds.js";
 
 const seedAll = async () => {
     try {

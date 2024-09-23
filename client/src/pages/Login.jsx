@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import { login } from '../api/authAPI';
 
-function Login() {
+const Login = () => {
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',

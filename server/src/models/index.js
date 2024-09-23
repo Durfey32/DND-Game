@@ -1,11 +1,11 @@
-import sequelize from "../config/connection";
-import { initializeGame, Game } from "./game";
-import { initializeCharacter, character } from "./character";
-import { initializePlayer, Player } from "./player";
+import sequelize from "../config/connection.js";
+import { initializeGame } from "./game.js";
+import { initializeCharacter} from "./character.js";
+import { initializePlayer } from "./players.js";
 
-initializePlayer(sequelize);
-initializeGame(sequelize);
-initializeCharacter(sequelize);
+const Player = initializePlayer(sequelize);
+const Game = initializeGame(sequelize);
+const Character = initializeCharacter(sequelize);
 
 Player.hasMany(Game, {foreignKey: 'player_id'});
 Game.belongsTo(Player, {foreignKey: 'player_id', as: 'player'});
