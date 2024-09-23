@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createGame } from  '../api/StoryAPI';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 const Storyline = () => {
     const [name, setName] = useState('');
@@ -16,6 +17,7 @@ const Storyline = () => {
         } catch (err) {
         console.error('error creating game:', err);
         }
+    };
     
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -52,6 +54,6 @@ const Storyline = () => {
         </div>
     );
 };
-}
+
 export default Storyline;
 

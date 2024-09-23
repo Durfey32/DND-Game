@@ -1,4 +1,4 @@
-import { Character } from '../models/character.js';
+import { Character } from '../models/index.js';
 
 export const seedCharacter = async () => {
     await Character.bulkCreate([
@@ -13,6 +13,7 @@ export const seedCharacter = async () => {
             intelligence: 10,
             wisdom: 10,
             charisma: 10,
+            gameid: 1,
         },
         {
             name: 'Gandalf the Grey',
@@ -25,6 +26,7 @@ export const seedCharacter = async () => {
             intelligence: 10,
             wisdom: 10,
             charisma: 10,
+            gameid: 1,
         },
         {
             name: 'Aragorn',
@@ -37,6 +39,8 @@ export const seedCharacter = async () => {
             intelligence: 10,
             wisdom: 10,
             charisma: 10,
+            gameid: 1,
+
         },
     ], { individualHooks: true });
 }

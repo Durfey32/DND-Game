@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { retrieveCharacter, updateCharacter, deleteCharacter } from '../api/CharacterAPI';
+import React from 'react';
 
 export const EditCharacter = () => {
     const { id } = useParams();

@@ -1,14 +1,14 @@
-import { Router, Request, Response } from 'express';
-import { User } from '../models/user.js';  
+import { Router, } from 'express'; 
 import jwt from 'jsonwebtoken';  
 import bcrypt from 'bcrypt';  
+import { Player } from '../models/players.js';
 
 
 export const login = async (req, res) => {
   try {
   const { username, password } = req.body;  
  
-  const user = await User.findOne({
+  const user = await Player.findOne({
     where: { username },
   });
 
