@@ -10,7 +10,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import CreateCharacter from './pages/CreateCharacter.jsx';
 import Storyline from './pages/Storyline.jsx'
 import EditCharacter from './pages/EditCharacter.jsx'
-
+import Leaderboard from './pages/Leaderboard.jsx'
 
 
 const router = createBrowserRouter([
@@ -39,10 +39,10 @@ const router = createBrowserRouter([
         path: '/edit-character',
         element: <EditCharacter />,
       },
-      // {
-      //   path: '/leaderboard',
-      //   element: <Leaderboard />,
-      // }
+      {
+        path: '/leaderboard',
+        element: <Leaderboard />,
+      }
 
     ],
   },

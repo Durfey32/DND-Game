@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import auth from "../utils/auth";
+import ErrorPage from "./ErrorPage";
+import "../index.css";   
+
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function MainPage() {
@@ -42,6 +45,11 @@ function MainPage() {
        
             <div className="main-page">
                 <h1> DND Style Game</h1>
+                <p> Welcome to the DND Style Game! </p>
+                <p> Please login to play the game. </p>
+                <button>
+                    <a href="/login">Login</a>
+                </button>
              
             </div>
        

@@ -6,7 +6,7 @@ export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   // Check if the authorization header is present
-  if (authHeader && authHeader.startsWith('Bearer ')) {
+  if (authHeader) {
     // Extract the token from the authorization header
     const token = authHeader.split(' ')[1];
 

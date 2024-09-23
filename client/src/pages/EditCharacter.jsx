@@ -57,10 +57,10 @@ useEffect(() => {
     };
 
     return (
-        <div>
+        <div className='CreateCharacter'>
             <h1>Edit Character</h1>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className='form'>
                     Name
                     <input 
                         type="text" 
@@ -70,7 +70,7 @@ useEffect(() => {
                         required
                         />
                 </label>
-                <label>
+                <label className='form'>
                     Description
                     <textarea 
                         value={character.description} 
