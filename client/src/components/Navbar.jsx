@@ -21,6 +21,9 @@ const Navbar = () => {
               <a className="nav-link" href="/storyline">Storyline</a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="/leaderboard">Leaderboard</a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/login" onClick={() => { auth.logout(); }}>login</a>
             </li>
           
