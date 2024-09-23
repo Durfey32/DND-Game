@@ -1,7 +1,7 @@
 import { Player } from '../models/index.js';
 
 export const seedPlayer = async () => {
-    await Player.bulkCreate([
+    const players = [
         {
             id: 1,
             username: 'user',
@@ -16,5 +16,17 @@ export const seedPlayer = async () => {
             password: 'password',
             role: 'admin',
         },
-    ], { individualHooks: true });
-}
+    ];
+
+     const hashedProfiles = await profiles.map((profile) => {
+        return {
+          ...profile,
+          password: bcrypt.hashSync(profile.password, 10),
+        };
+      });
+    
+      console.log('hashedUsers', hashedProfiles);
+    
+      await Player.bulkCreate(hashedProfiles);
+    };
+    

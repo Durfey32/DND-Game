@@ -1,12 +1,12 @@
 
-const login = async (userInfo) => {
+const login = async ({username, password}) => {
     try {
-      const response = await fetch('/auth/login', {
+      const response = await fetch('localhost:3001/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userInfo),
+        body: JSON.stringify({username, password}),
       });
   
       const data = await response.json();
