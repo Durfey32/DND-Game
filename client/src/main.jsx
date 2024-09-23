@@ -11,6 +11,7 @@ import CreateCharacter from './pages/CreateCharacter.jsx';
 import Storyline from './pages/Storyline.jsx'
 import EditCharacter from './pages/EditCharacter.jsx'
 import Leaderboard from './pages/Leaderboard.jsx'
+import Game from './pages/Game.jsx'
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
       {
         path: '/leaderboard',
         element: <Leaderboard />,
+      },
+      {
+        path: '/Game/:name',
+        element: <Game />,
+
+
       }
 
     ],

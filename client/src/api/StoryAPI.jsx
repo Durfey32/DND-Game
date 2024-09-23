@@ -1,3 +1,5 @@
+import auth from '../utils/auth.js';
+
 const retrieveGames = async () => {
     try {
         const response = await fetch(`/api/games/`, {
@@ -38,14 +40,16 @@ const retrieveGame = async (gameId) => {
     }
 };
 
-const createGame = async (gameData) => {   
+const createGame = async (gamedata, token) => {   
     try {
+        const token = auth.getToken();
         const response = await fetch(`/api/games`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(gameData)
+            body: JSON.stringify(gamedata)
         });
     
         if (!response.ok) {

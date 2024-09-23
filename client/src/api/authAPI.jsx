@@ -1,4 +1,4 @@
-
+import auth from '../utils/auth';
 const login = async ({username, password}) => {
     try {
       const response = await fetch('/auth/login', {
@@ -17,7 +17,7 @@ const login = async ({username, password}) => {
         
       }
   
-      auth.setToken(data.token);
+      // auth.setToken(data.token);
       return data;
     } catch (err) {
       console.log('Error from player login: ', err);
