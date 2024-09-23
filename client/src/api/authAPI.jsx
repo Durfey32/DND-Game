@@ -17,6 +17,7 @@ const login = async ({username, password}) => {
         
       }
   
+      auth.setToken(data.token);
       return data;
     } catch (err) {
       console.log('Error from player login: ', err);

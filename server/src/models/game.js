@@ -10,12 +10,12 @@ export function initializeGame(sequelize) {
         autoIncrement: true,
         primaryKey: true,
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      game_master: {
-        type: DataTypes.STRING,
+      description: {
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     },
