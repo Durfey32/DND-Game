@@ -1,16 +1,16 @@
 
-const login = async (playerInfo) => {
+const login = async ({username, password}) => {
     try {
       const response = await fetch('/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(playerInfo),
+        body: JSON.stringify({username, password}),
       });
   
       const data = await response.json();
-      console.log(playerInfo);
+      
         
       if (!response.ok) {
         throw new Error('Player information not retrieved, check network tab!');

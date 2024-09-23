@@ -5,7 +5,7 @@ import { Player } from '../models/players.js';
 
 
 export const login = async (req, res) => {
-  try {
+
   const { username, password } = req.body;
   console.log('received login request:', username);  
  
@@ -15,13 +15,14 @@ export const login = async (req, res) => {
 
   
   if (!user) {
-    return res.status(401).json({ message: 'Authentication failed' });
+    return res.status(401).json({ message: 'user Authentication failed' });
   }
 
   const passwordIsValid = await bcrypt.compare(password, user.password);
  
   if (!passwordIsValid) {
-    return res.status(401).json({ message: 'Authentication failed' });
+    // console.log(password, user.password);
+    return res.status(401).json({ message: 'pass Authentication failed' });
   }
 
   const secretKey = process.env.JWT_SECRET_KEY || '';
@@ -32,10 +33,10 @@ export const login = async (req, res) => {
   const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
 
   return res.json({ token }); 
-} catch (error) {
-  console.error('Error in login:', error);
-  return res.status(500).json({ error: 'Failed to login' });
-}
+// } catch (error) {
+//   console.error('Error in login:', error);
+//   return res.status(500).json({ error: 'Failed to login' });
+// }
 };
 
 const router = Router();
