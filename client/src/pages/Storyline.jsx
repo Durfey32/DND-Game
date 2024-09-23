@@ -6,47 +6,30 @@ import React from 'react';
 import '../index.css';
 
 const Storyline = () => {
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
+    // const [name, setName] = useState('');
+    // const [description, setDescription] = useState('');
+    const [gamedata, setGamedata] = useState({
+        name: '',
+        description: '',
+    });
     const navigate = useNavigate();
 
-    const createGame = async (game) => {
+
+    const createNewGame = async (gamedata) => {
         try {
-            const token =auth.getToken();
-
-            const response = await fetch('/api/games', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify(game),
-            });
-
-            console.log('Response status:', response.status);
-        if (!response.ok) {
-            throw new Error('Failed to create game due to invalid API response');
-        }
-
-        const data = await response.json();
-        return data;
-        } catch (err) {
-        console.error('error creating game:', err);
-        return Promise.reject('error creating game');
-        }
-    }
-
-    const createNewGame = async (game) => {
-        try {
-        const data = await createGame(game);
+        const data = await createGame(gamedata);
         console.log('created game:', data);
         } catch (err) {
         console.error('error creating game:', err);
         }
     };
     
-    const handleNameChange = (e) => {
-        setName(e.target.value);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setGamedata({
+          ...gamedata,
+          [name]: value,
+    });
     };
     
     const handleDescriptionChange = (e) => {
@@ -56,8 +39,8 @@ const Storyline = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        await createNewGame({ name, description });
-        navigate('/storyline');
+        await createNewGame(gamedata);
+        navigate(`/Game/${gamedata.name}`);
         } catch (err) {
         console.error(err);
         }
@@ -69,11 +52,19 @@ const Storyline = () => {
         <form onSubmit={handleSubmit}>
             <label className='form'>
             Name
-            <input type="text" value={name} onChange={handleNameChange} />
+            <input 
+            type="text"
+            name='name'
+             value={gamedata.name || '' } 
+             onChange={handleChange} />
             </label>
             <label className='form'>
             Description
-            <textarea value={description} onChange={handleDescriptionChange} />
+            <textarea 
+            type="text"
+            name='description'
+            value={gamedata.description || ''} 
+            onChange={handleChange} />
             </label>
             <button type="submit">Create Game</button>
         </form>
