@@ -1,4 +1,5 @@
 import { Player } from '../models/index.js';
+import bcrypt from 'bcrypt';
 
 export const seedPlayer = async () => {
     const players = [
@@ -18,10 +19,10 @@ export const seedPlayer = async () => {
         },
     ];
 
-     const hashedProfiles = await profiles.map((profile) => {
+     const hashedProfiles = await players.map((player) => {
         return {
-          ...profile,
-          password: bcrypt.hashSync(profile.password, 10),
+          ...player,
+          password: bcrypt.hashSync(player.password, 10),
         };
       });
     
