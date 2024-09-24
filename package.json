@@ -23,7 +23,7 @@
     "url": "https://github.com/your-repo-url"
   },
   "contributors": [],
-  "scripts": { 
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm i && npm run seed && npm run build && npm run start:dev",
     "start": "npm run client:build && npm run server",
@@ -38,6 +38,7 @@
     "render-build": "npm install && npm run build"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.19.0",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "convai-web-sdk": "^0.1.2",
@@ -47,7 +48,7 @@
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "langchain": "^0.3.2",
-    "openai": "^4.62.1",
+    "openai": "^4.63.0",
     "pg": "^8.11.5",
     "sequelize": "^6.37.3"
   },
