@@ -20,10 +20,9 @@ This project was developed with the goal of allowing players to experience the t
 - [Questions?](#questions)
 
 ## Usage
-- **Character Customization**: Create and design your own unique character with various attributes such as race, class, and abilities. 
 - **Start or Continue a Game**: Players can choose to start a new game and embark on fresh adventures, or continue from where they left off in previous sessions. The AI will adjust to the player’s progress and choices, ensuring an evolving storyline.
   
-Simply choose your character, set up the game, and let the AI guide you through an engaging *Dungeons and Dragons* session. Whether you're a beginner or an experienced player, the AI-driven mechanics provide an easy-to-understand but richly immersive experience.
+Simply choose your story, set up the game, and let the AI guide you through an engaging *Dungeons and Dragons* session. Whether you're a beginner or an experienced player, the AI-driven mechanics provide an easy-to-understand but richly immersive experience.
 
 ## Credits
 This project was created by:
@@ -45,8 +44,7 @@ This project is licensed under the **AGPL** license.
 
 
 ## Tests
-You can test the game by navigating to the provided URL:  
-*URL to be added*
+![alt text](chrome_rBnDtv9cGg.gif)
 
 ## Questions?
 For any questions or issues, feel free to reach out:
