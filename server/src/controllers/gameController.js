@@ -201,9 +201,9 @@ export const test = async (req, res) => {
 }
 
 export const requestForGame = async (req, res) => {
-    const { gameName, gameDescription } = req.body;
-    console.log('gameName:', gameName);
-    console.log('gameDescription:', gameDescription);
+    const { name, description } = req.body;
+    console.log('name:', name);
+    console.log('description:', description);
     fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -211,21 +211,30 @@ export const requestForGame = async (req, res) => {
             'Authorization': `Bearer ${openaiApiKey}`
         },
         body: JSON.stringify({
-            "model": "gpt-3.5-turbo",
-            "messages": [
+           
+            messages: [
                 {
-                    "role": "Dungeon_Master",
-                    "content": "You are a Dungeon Master creating a Dungeons and Dragons (D&D) quest for players. Narrate a quest where players are faced with an adventure. Ask them an important question during the quest and provide them with multiple options for how to proceed. Make it engaging and immersive."
+                    role: "system",
+                    content: "You are a Dungeon Master creating a Dungeons and Dragons (D&D) quest for players. Narrate a quest where players are faced with an adventure. Ask them an important question during the quest and provide them with multiple options for how to proceed. Make it engaging and immersive."
+                },
+                {
+                    role: "user",
+                    content: description
                 }
-            ]
+
+
+            ],
+             model: "gpt-3.5-turbo",
         })
     })
+    .then(console.log('response:', res))
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        res.json({ gameName, gameDescription, response: data });
+        // console.log(data);
+       return res.json(data);
     })
     .catch(error => {
+        console.log(res);
         console.error('Error in requestForGame:', error);
         res.status(500).json({ error: 'Failed to fetch game data.' });
     });

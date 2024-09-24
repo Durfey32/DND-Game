@@ -41,49 +41,81 @@ const retrieveGame = async (gameId) => {
     }
 };
 
-const createGame = async (req, res) => {   
+const createGame = async (gamedata) => {   
     try {
-        const gamedata = {
-            model : "gpt-3.5-turbo",
-            messages : [
-      {
-        role : "system",
-        content : "You are a helpful assistant."
-      },
-      {
-        role : "user",
-        content : "Hello!"
-      }
-    ]
-}
+    const response = await fetch(`/api/games/requestForGame`, 
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' ,
+        
+        },
+        body: JSON.stringify(gamedata)
+    });
+    const responseText = await response.text(); // Use text instead of json for debugging
+    console.log('Raw response:', responseText);
+    const data = await response;
 
-        console.log('req.body:', req.body);
+    if (!response.ok) {
+        throw new Error('invalid game API response, check the server logs');
+    }
 
-        const token = auth.getToken();
-        console.log('token:', token);
-        if (!token) {
-            throw new Error('no token found');
-        }
-        const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(gamedata)
-        });
-    
-        if (!response.ok) {
-            throw new Error('invalid game API response, check the server logs');
-        }
-    
-        const data = await response.json();
-        return data;
-    } catch (error) {
+    return data;
+    }
+    catch (error) {
         console.error('error creating game:', error);
         return Promise.reject('error creating game');
     }
 };
+
+
+  
+
+
+
+
+    // try {
+    //     const gamedata = {
+    //         model : "gpt-3.5-turbo",
+    //         messages : [
+    //   {
+    //     role : "system",
+    //     content : "You are a helpful assistant."
+    //   },
+    //   {
+    //     role : "user",
+    //     content : "Hello!"
+    //   }
+    // ]
+// }
+
+//         console.log('req.body:', req.body);
+
+//         const token = auth.getToken();
+//         console.log('token:', token);
+//         if (!token) {
+//             throw new Error('no token found');
+//         }
+//         const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`
+//             },
+//             body: JSON.stringify(gamedata)
+//         });
+    
+//         if (!response.ok) {
+//             throw new Error('invalid game API response, check the server logs');
+//         }
+    
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('error creating game:', error);
+//         return Promise.reject('error creating game');
+//     }
+// };
 
 const createGameWithOpenAI = async (req, res) => {
     try {
@@ -145,6 +177,7 @@ const deleteGame = async (gameId) => {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
+                
             }
         });
     
