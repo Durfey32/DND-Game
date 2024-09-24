@@ -264,6 +264,20 @@
   color: black;
 }
 
+.Game {
+  background-image: url("../../assets/Game-Map.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-shadow: black 5px 5px 5px;
+}
+
 @media (max-width: 768px) {
   .leaderboard table {
     font-size: 0.9rem;
