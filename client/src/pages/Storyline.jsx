@@ -15,14 +15,14 @@ const Storyline = () => {
     const navigate = useNavigate();
 
 
-    const createNewGame = async (gamedata) => {
-        try {
-        const data = await createGame(gamedata);
-        console.log('created game:', data);
-        } catch (err) {
-        console.error('error creating game:', err);
-        }
-    };
+    // const createNewGame = async (gamedata) => {
+    //     try {
+    //     const data = await createGame(gamedata);
+    //     console.log('created game:', data);
+    //     } catch (err) {
+    //     console.error('error creating game:', err);
+    //     }
+    // };
     
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -32,15 +32,17 @@ const Storyline = () => {
     });
     };
     
-    const handleDescriptionChange = (e) => {
-        setDescription(e.target.value);
-    };
+
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        await createNewGame(gamedata);
-        navigate(`/Game/${gamedata.name}`);
+            const data = await createGame(gamedata);
+
+        // await createNewGame(gamedata);
+        navigate(`/Game/${gamedata.name}`) 
+        //   fetch(`/api/games/requestForGame`)  
+       
         } catch (err) {
         console.error(err);
         }
