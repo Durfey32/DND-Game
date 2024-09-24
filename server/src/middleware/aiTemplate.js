@@ -8,8 +8,6 @@ dotenv.config();
 const apiKey = process.env.OPENAI_API_KEY;
 let model;
 
-
-
 if (apiKey) {
     model = new OpenAI(apiKey);
   } else {

@@ -40,10 +40,17 @@ const retrieveGame = async (gameId) => {
     }
 };
 
-const createGame = async (gamedata, token) => {   
+const createGame = async (req, res) => {   
     try {
+        const gamedata = 'testing story';
+
+        console.log('req.body:', req.body);
+
         const token = auth.getToken();
-        const response = await fetch(`/api/games`, {
+        if (!token) {
+            throw new Error('no token found');
+        }
+        const response = await fetch(`/api/games/ask`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,6 +68,38 @@ const createGame = async (gamedata, token) => {
     } catch (error) {
         console.error('error creating game:', error);
         return Promise.reject('error creating game');
+    }
+};
+
+const createGameWithOpenAI = async (req, res) => {
+    try {
+        const { name, description } = req.body;
+        if (!name || !description) {
+            return res.status(400).json({ error: 'Please provide a name and description for the game.' });
+        }
+
+        const formattedPrompt = await formattedPrompt(description);
+
+        const openaiResponse = await promptFunc(formattedPrompt);
+
+        const parsedResponse = await parsedResponse(openaiResponse);
+
+        if (parsedResponse.error) {
+            return res.status(500).json({ error: parsedResponse.error });
+        }
+
+        const newGame = await Game.create({ 
+            name, 
+            description, 
+            scenario: parsedResponse.scenario, 
+            quest: parsedResponse.quest, 
+            questions: parsedResponse.questions, 
+            options: parsedResponse.options });
+
+        res.status(200).json(newGame);
+    } catch (err) {
+        console.error('Error in createGame:', err);
+        res.status(500).json({ error: 'Failed to create game due to server error.' });
     }
 };
 
