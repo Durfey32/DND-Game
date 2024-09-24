@@ -1,5 +1,6 @@
 import auth from '../utils/auth.js';
 
+
 const retrieveGames = async () => {
     try {
         const response = await fetch(`/api/games/`, {
@@ -22,7 +23,7 @@ const retrieveGames = async () => {
 
 const retrieveGame = async (gameId) => {
     try {
-        const response = await fetch(`/api/games/${gameId}`, {
+        const response = await fetch(`/api/games/1`, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -42,15 +43,28 @@ const retrieveGame = async (gameId) => {
 
 const createGame = async (req, res) => {   
     try {
-        const gamedata = 'testing story';
+        const gamedata = {
+            model : "gpt-3.5-turbo",
+            messages : [
+      {
+        role : "system",
+        content : "You are a helpful assistant."
+      },
+      {
+        role : "user",
+        content : "Hello!"
+      }
+    ]
+}
 
         console.log('req.body:', req.body);
 
         const token = auth.getToken();
+        console.log('token:', token);
         if (!token) {
             throw new Error('no token found');
         }
-        const response = await fetch(`/api/games/ask`, {
+        const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

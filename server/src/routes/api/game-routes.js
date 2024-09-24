@@ -15,4 +15,6 @@ gameRoutes.post('/ask', askQuestion);
 
 gameRoutes.post('/test', test);
 
+gameRoutes.post('/requestForGame', requestForGame);
+
 export { gameRoutes as gameRoutes};
