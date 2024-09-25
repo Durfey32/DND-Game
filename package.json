@@ -23,7 +23,7 @@
     "url": "https://github.com/your-repo-url"
   },
   "contributors": [],
-  "scripts": { 
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm i && npm run seed && npm run build && npm run start:dev",
     "start": "npm run client:build && npm run server",
@@ -49,7 +49,8 @@
     "langchain": "^0.3.2",
     "openai": "^4.62.1",
     "pg": "^8.11.5",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "startbootstrap-grayscale": "^7.0.6"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
