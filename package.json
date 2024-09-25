@@ -50,6 +50,7 @@
     "langchain": "^0.3.2",
     "openai": "^4.63.0",
     "pg": "^8.11.5",
+    "render": "^0.1.4",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
