@@ -14,7 +14,9 @@ function MainPage() {
 
     useEffect(() => {
         if (loginCheck) {
+            const data = auth.getToken();
            console.log('login check');
+           console.log(data);
             fetchUsers();
         }
     }, [loginCheck]);
