@@ -15,7 +15,7 @@ export const Game = () => {
   });
 
   useEffect(() => {
-    const fetchRawResponse = async () => {
+    const fetchRawResponse = async (gameData) => {
       try {
         const response = await fetch('/api/games/requestForGame', {
           method: 'POST',
