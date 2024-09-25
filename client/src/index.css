@@ -285,23 +285,110 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* General responsiveness for smaller screens */
 @media (max-width: 768px) {
+  .main-page, .CreateCharacter, .form-container, .storyline, .leaderboard, .Game {
+    background-size: contain;
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* Adjust text size and layout for smaller screens */
+  .main-page h1, .CreateCharacter h1, .form-container h1, .storyline h1, .leaderboard h1, .Game h1 {
+    font-size: 2rem;
+  }
+
+  .main-page p, .CreateCharacter p, .storyline p, .Game p, .Game ul {
+    font-size: 1rem;
+  }
+
+  /* Adjust input fields and buttons */
+  .CreateCharacter input, .CreateCharacter textarea, .form-container input, .storyline input, .storyline textarea, .leaderboard input, .leaderboard textarea {
+    width: 90%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .CreateCharacter button, .form-container button, .storyline button, .leaderboard button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Adjust layout of tables on smaller screens */
   .leaderboard table {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .leaderboard th, .leaderboard td {
     padding: 0.5rem;
   }
 
-  .leaderboard h1 {
-    font-size: 2.5rem;
+  /* Adjust form containers */
+  .CreateCharacter .form, .form-container form, .storyline .form, .leaderboard form {
+    width: 100%;
+    gap: 0.5rem;
   }
 
-  .leaderboard form {
-    padding: 1.5rem;
+  .CreateCharacter, .form-container, .storyline, .leaderboard {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
   }
 
+  .leaderboard form, .storyline .form-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+  }
+
+  .Game {
+    padding: 1rem;
+    text-align: center;
+  }
 }
+
+/* Very small screens (mobile, below 480px) */
+@media (max-width: 480px) {
+  .main-page, .CreateCharacter, .form-container, .storyline, .leaderboard, .Game {
+    background-position: top;
+  }
+
+  .main-page h1, .CreateCharacter h1, .form-container h1, .storyline h1, .leaderboard h1, .Game h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-page p, .CreateCharacter p, .storyline p, .Game p, .Game ul {
+    font-size: 0.9rem;
+  }
+
+  .CreateCharacter input, .CreateCharacter textarea, .form-container input, .storyline input, .storyline textarea, .leaderboard input, .leaderboard textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .CreateCharacter button, .form-container button, .storyline button, .leaderboard button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .leaderboard table {
+    font-size: 0.7rem;
+  }
+
+  .leaderboard th, .leaderboard td {
+    padding: 0.3rem;
+  }
+
+  .CreateCharacter .form, .form-container form, .storyline .form, .leaderboard form {
+    width: 100%;
+    gap: 0.3rem;
+  }
+
+  .Game {
+    padding: 0.5rem;
+  }
+}
+
 
 
