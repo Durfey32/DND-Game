@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllGames, createGame, updateGame, deleteGame, askQuestion, test, requestForGame} from '../../controllers/gameController.js';
+import { getAllGames, createGame, updateGame, deleteGame, askQuestion, test, requestForGame, requestForNextGame} from '../../controllers/gameController.js';
 
 const gameRoutes = express.Router();
 
@@ -17,4 +17,5 @@ gameRoutes.post('/test', test);
 
 gameRoutes.post('/requestForGame', requestForGame);
 
+gameRoutes.post('/requestForNextGame', requestForNextGame);
 export { gameRoutes as gameRoutes};

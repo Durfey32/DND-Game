@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createGame } from  '../api/StoryAPI';
+import { createGame } from  '../api/StoryAPI.jsx';
 import { useNavigate } from 'react-router-dom';
 import auth from '../utils/auth.js'
 import React from 'react';
@@ -37,7 +37,7 @@ const Storyline = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await createGame(gamedata);
+            // const data = await createGame(gamedata);
 
         // await createNewGame(gamedata);
         navigate(`/Game/${gamedata.name}`) 
