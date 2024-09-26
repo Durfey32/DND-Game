@@ -1,28 +1,18 @@
 import { useState } from 'react';
-import { createGame } from  '../api/StoryAPI';
+import { createGame } from  '../api/StoryAPI.jsx';
 import { useNavigate } from 'react-router-dom';
 import auth from '../utils/auth.js'
 import React from 'react';
 import '../index.css';
 
 const Storyline = () => {
-    // const [name, setName] = useState('');
-    // const [description, setDescription] = useState('');
+ 
     const [gamedata, setGamedata] = useState({
         name: '',
         description: '',
     });
     const navigate = useNavigate();
 
-
-    // const createNewGame = async (gamedata) => {
-    //     try {
-    //     const data = await createGame(gamedata);
-    //     console.log('created game:', data);
-    //     } catch (err) {
-    //     console.error('error creating game:', err);
-    //     }
-    // };
     
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,11 +27,11 @@ const Storyline = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await createGame(gamedata);
+            // const data = await createGame(gamedata);
 
-        // await createNewGame(gamedata);
+        await createGame(gamedata);
         navigate(`/Game/${gamedata.name}`) 
-        //   fetch(`/api/games/requestForGame`)  
+      
        
         } catch (err) {
         console.error(err);

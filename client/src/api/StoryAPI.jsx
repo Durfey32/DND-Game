@@ -67,6 +67,32 @@ const createGame = async (gamedata) => {
         return Promise.reject('error creating game');
     }
 };
+const nextGame = async (playerChoice) => {   
+    try {
+    const response = await fetch(`/api/games/requestForNextGame`, 
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' ,
+        
+        },
+        body: JSON.stringify(playerChoice)
+    });
+    const responseText = await response.text(); // Use text instead of json for debugging
+    console.log('Raw response:', responseText);
+    const data = await response;
+
+    if (!response.ok) {
+        throw new Error('invalid game API response, check the server logs');
+    }
+
+    return data;
+    }
+    catch (error) {
+        console.error('error creating game:', error);
+        return Promise.reject('error creating game');
+    }
+};
 
 
   
@@ -215,4 +241,4 @@ const createScore = async (scoreData) => {
     }
 };
 
-export { retrieveGames, retrieveGame, createGame, updateGame, deleteGame, createScore };
+export { retrieveGames, retrieveGame, createGame, updateGame, deleteGame, createScore, nextGame };

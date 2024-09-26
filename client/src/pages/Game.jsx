@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { nextGame, createGame } from '../api/StoryAPI.jsx'
 
 export const Game = () => {
   const [rawResponse, setRawResponse] = useState({
@@ -7,7 +8,7 @@ export const Game = () => {
     options: [],
   });
   const [isResponseDisplayed, setIsResponseDisplayed] = useState(false);
-  const [playerChoice, setPlayerChoice] = useState('');
+  const [playerChoice, setPlayerChoice] = useState();
   const [gameData, setGameData] = useState({
     name:'Example Game Name',
     description: 'A description of the game quest where the player will make choices to progress the story'
@@ -50,7 +51,16 @@ export const Game = () => {
   const handlePlayerChoiceChange = (e) => {
     setPlayerChoice(e.target.value);
   }
+  const handleSubmit = async (e) => {
+    try {
 
+        const data = await nextGame(playerChoice);
+
+   
+    } catch (err) {
+    console.error(err);
+    }
+};
   
 return (
     <div className='Game'>
@@ -72,16 +82,19 @@ return (
                   checked={playerChoice === option}
                   onChange={handlePlayerChoiceChange}
                 />
+                
                 <label htmlFor={option}>{option}</label>
               </li>
             ))}
-          </ul>
+          </ul> 
+         
         </div>
-
+       <form onSubmit={handleSubmit}>
         <div>
-          <h4>You Chose:</h4>
+          <h4>You Chose:</h4> <button type="submit">Next</button>
           <p>{playerChoice}</p>
         </div>
+        </form>
     </div>
 )
 }
