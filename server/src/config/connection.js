@@ -3,8 +3,8 @@ dotenv.config();
 
 import { Sequelize } from 'sequelize';
 
-const sequelize = process.env.dndgame_db
-    ? new Sequelize(process.env.dndgame_db)
+const sequelize = process.env.DB_URL
+    ? new Sequelize(process.env.DB_URL)
     : new Sequelize(
         process.env.DB_NAME || '',
         process.env.DB_USER || '',
