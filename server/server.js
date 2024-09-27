@@ -34,16 +34,15 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(express.static('../client/dist'));
 app.use(routes);
+
 
 app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3001;
 
 const forceDatabaseSync = false;
-
-app.use(express.static('../client/dist'));
-
 
 
 sequelize.sync({ force: forceDatabaseSync }).then(() => {
