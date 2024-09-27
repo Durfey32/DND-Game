@@ -241,4 +241,46 @@ export const requestForGame = async (req, res) => {
 }
 
 
+export const requestForNextGame = async (req, res) => {
+    const playerChoice = req.body;
+    console.log('playerChoice:', playerChoice);
+  
+    fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', 
+            'Authorization': `Bearer ${openaiApiKey}`
+        },
+        body: JSON.stringify({
+           
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a Dungeon Master creating a Dungeons and Dragons (D&D) quest for players. Narrate a quest where players are faced with an adventure. Ask them an important question during the quest and provide them with multiple options for how to proceed. Make it engaging and immersive."
+                },
+                {
+                    role: "user",
+                    content: playerChoice
+                }
+
+
+            ],
+             model: "gpt-3.5-turbo",
+        })
+    })
+    .then(console.log('response:', res))
+    // .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+       return res.json(data);
+    })
+    .catch(error => {
+        console.log(res);
+        console.error('Error in requestForGame:', error);
+        res.status(500).json({ error: 'Failed to fetch game data.' });
+    });
+}
+
+
+
 
