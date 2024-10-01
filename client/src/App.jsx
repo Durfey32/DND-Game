@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import React from 'react';
+import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 // import Leaderboard from './components/Leaderboard';
 
 function App() {
