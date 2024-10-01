@@ -4,6 +4,8 @@ import auth from "../utils/auth";
 import ErrorPage from "./ErrorPage";
 import "../index.css";   
 import { retrieveUsers } from "../api/playerAPI.jsx";
+import { Link } from "react-router-dom";
+
 
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -52,7 +54,7 @@ function MainPage() {
                 <p> Welcome to the DND Style Game! </p>
                 <p> Please login to play the game. </p>
                 <button>
-                    <a href="/login">Login</a>
+                    <Link to="/login">Login</Link>
                 </button>
              
             </div>

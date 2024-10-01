@@ -1,5 +1,5 @@
 .main-page {
-  background-image: url("../../assets/Cave_Enterance.jpg");
+  background-image: url("../assets/Cave_Enterance.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -13,7 +13,7 @@
 }
 
 .CreateCharacter {
-  background-image: url("../../assets/5e-fighter-guide.jpg");
+  background-image: url("../assets/5e-fighter-guide.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -63,7 +63,7 @@
 }
 
 .form-container {
-  background-image: url("../../assets/login.jpg");
+  background-image: url("../assets/login.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -108,7 +108,7 @@
 }
 
 .storyline {
-  background-image: url("../../assets/storyline.jpg");
+  background-image: url("../assets/storyline.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -178,7 +178,7 @@
 }
 
 .leaderboard {
-  background-image: url("../../assets/score.jpg");
+  background-image: url("../assets/score.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -265,7 +265,7 @@
 }
 
 .Game {
-  background-image: url("../../assets/Game-Map.jpg");
+  background-image: url("../assets/Game-Map.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;

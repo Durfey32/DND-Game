@@ -1,7 +1,7 @@
 import React from 'react';
 import auth from '../utils/auth';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login" onClick={() => { auth.logout(); }}>login</Link>
+              <Link className="nav-link" to="/login">login</Link>
             </li>
           
           </ul>
