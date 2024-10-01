@@ -1,13 +1,14 @@
 import React from 'react';
 import auth from '../utils/auth';
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">DND-Game</a>
+        <Link className="navbar-brand" to="/">DND-Game</Link>
         <button 
         className="navbar-toggler" 
         type="button"
@@ -21,16 +22,16 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/storyline">Storyline</a>
+              <Link className="nav-link" to="/storyline">Storyline</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/leaderboard">Leaderboard</a>
+              <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/login" onClick={() => { auth.logout(); }}>login</a>
+              <Link className="nav-link" to="/login" onClick={() => { auth.logout(); }}>login</Link>
             </li>
           
           </ul>
